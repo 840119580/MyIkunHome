@@ -1,8 +1,10 @@
 {
   "name": "home",
-  "author": "imsyy",
-  "github": "https://github.com/imsyy/home",
-  "home": "https://imsyy.top",
+  "author": "Hanshu",
+  "originalauthor":"imsyy",
+  "github": "https://github.com/840119580/MyIkunHome",
+  "originalgithub":"https://github.com/imsyy/home",
+  "home": "https://ikunx.site",
   "private": true,
   "version": "4.1.4",
   "type": "module",
