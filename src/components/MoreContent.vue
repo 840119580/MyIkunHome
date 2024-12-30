@@ -1,5 +1,6 @@
 <template>
-  <div class="more-content">您可在此编写任意内容</div>
+  <!-- <div class="more-content">您可在此编写任意内容</div> -->
+  <Update />
 </template>
 
 <style lang="scss" scoped>
@@ -12,3 +13,6 @@
   height: 100%;
 }
 </style>
+
+
+<script setup> import Update from './Update.vue'; </script>
