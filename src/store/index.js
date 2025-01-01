@@ -25,6 +25,8 @@ export const mainStore = defineStore("main", {
       playerAutoplay: false, // 是否自动播放
       playerLoop: "all", // 循环播放 "all", "one", "none"
       playerOrder: "list", // 循环顺序 "list", "random"
+
+      valueOpenStyle: true, // 页面打开样式"true""false" true:打开新页面 false:当前页面
     };
   },
   getters: {
@@ -88,6 +90,7 @@ export const mainStore = defineStore("main", {
       "playerAutoplay",
       "playerLoop",
       "playerOrder",
+      "valueOpenStyle",
     ],
   },
 });

@@ -5,6 +5,12 @@
         <Link />
       </Icon>
       <span class="title">网站列表</span>
+      <!-- <span class="title">网站列表</span> -->
+          <el-switch v-model="valueOpenStyle" class="valueOpenStyle"
+            inline-prompt
+            active-text="新页面打开"
+            inactive-text="当前页打开"
+          />
     </div>
     <!-- 网站列表 -->
     <Swiper
@@ -48,8 +54,12 @@ import { mainStore } from "@/store";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Pagination, Mousewheel } from "swiper/modules";
 import siteLinks from "@/assets/siteLinks.json";
+import  { ref } from "vue";
+import { storeToRefs } from "pinia";
+
 
 const store = mainStore();
+const { valueOpenStyle } = storeToRefs(store);
 
 // 计算网站链接
 const siteLinksList = computed(() => {
@@ -77,7 +87,11 @@ const jumpLink = (data) => {
   if (data.name === "音乐" && store.musicClick) {
     if (typeof $openList === "function") $openList();
   } else {
-    window.open(data.link, "_blank");
+    if (valueOpenStyle.value) {
+      window.open(data.link, "_blank");
+    } else {
+      window.location.href = data.link;
+    }
   }
 };
 
@@ -87,17 +101,28 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
+
+.valueOpenStyle {
+  margin-left: 10px;
+  display: flex;
+  justify-content: flex-end;
+--el-switch-off-color: #BA83FF;
+// --el-switch-core-height: 30px; /* 自定义滑块的高度 */
+}
+
 .links {
   .line {
     margin: 2rem 0.25rem 1rem;
     font-size: 1.1rem;
     display: flex;
     align-items: center;
+    justify-content: space-between; /* 两端对齐子元素 */
     animation: fade 0.5s;
     .title {
       margin-left: 8px;
       font-size: 1.15rem;
       text-shadow: 0 0 5px #00000050;
+      flex-grow: 1; /* 使标题占据剩余空间 */
     }
   }
   .swiper {
