@@ -1,12 +1,12 @@
 [
   {
-    "icon": "Blog",
-    "name": "暂未上线",
-    "link": ""
+    "icon": "Tools",
+    "name": "小工具合集",
+    "link": "tools.ikunx.site"
   },
   {
-    "icon": "Cloud",
-    "name": "暂未上线",
+    "icon": "Compass",
+    "name": "优质导航",
     "link": ""
   },
   {
@@ -15,7 +15,7 @@
     "link": ""
   },
   {
-    "icon": "Compass",
+    "icon": "Cloud",
     "name": "暂未上线",
     "link": ""
   },

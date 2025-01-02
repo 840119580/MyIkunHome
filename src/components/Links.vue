@@ -48,14 +48,15 @@
 
 <script setup>
 import { Icon } from "@vicons/utils";
-// 可前往 https://www.xicons.org 自行挑选并在此处引入
-import { Link, Blog, CompactDisc, Cloud, Compass, Book, Fire, LaptopCode } from "@vicons/fa"; // 注意使用正确的类别
+// 图标包官网 https://www.xicons.org
+import { Link, Blog, CompactDisc, Cloud, Compass, Book, Fire, LaptopCode, Tools } from "@vicons/fa"; // 注意使用正确的类别
 import { mainStore } from "@/store";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Pagination, Mousewheel } from "swiper/modules";
 import siteLinks from "@/assets/siteLinks.json";
 import  { ref } from "vue";
 import { storeToRefs } from "pinia";
+import { ElMessage } from "element-plus";
 
 
 const store = mainStore();
@@ -80,10 +81,15 @@ const siteIcon = {
   Book,
   Fire,
   LaptopCode,
+  Tools,
 };
 
 // 链接跳转
 const jumpLink = (data) => {
+  if(data.link==""){
+    ElMessage.error(data.name+"链接为空");
+    return;
+  } 
   if (data.name === "音乐" && store.musicClick) {
     if (typeof $openList === "function") $openList();
   } else {

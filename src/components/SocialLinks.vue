@@ -6,7 +6,8 @@
         v-for="item in socialLinks"
         :key="item.name"
         :href="item.url"
-        
+        :target="valueOpenStyle?'_blank':'_self'"
+
         @mouseenter="socialTip = item.tip"
         @mouseleave="socialTip = '通过这里联系我吧'"
       >
@@ -19,6 +20,11 @@
 
 <script setup>
 import socialLinks from "@/assets/socialLinks.json";
+import { storeToRefs } from "pinia";
+import { mainStore } from "@/store";
+
+const store = mainStore();
+const { valueOpenStyle } = storeToRefs(store);
 
 // 社交链接提示
 const socialTip = ref("通过这里联系我吧");
