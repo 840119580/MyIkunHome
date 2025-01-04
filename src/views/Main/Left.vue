@@ -13,6 +13,10 @@ const store = mainStore();
 </script>
 
 <style lang="scss" scoped>
+.hidden {
+    display: none;
+  }
+
 .left {
   // flex: 1 0 0%;
   width: 50%;

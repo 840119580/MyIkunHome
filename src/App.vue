@@ -8,14 +8,22 @@
     <main id="main" v-if="store.imgLoadStatus">
       <div class="container" v-show="!store.backgroundShow">
         <section class="all" v-show="!store.setOpenState">
-          <MainLeft />
-          <MainRight v-show="!store.boxOpenState" />
+          <MainLeft v-show = "!store.toolsOpen" />
+          <MainRight v-show="!store.boxOpenState && !store.toolsOpen" />
           <Box v-show="store.boxOpenState" />
+          <GHTools v-show="store.toolsOpen" />
         </section>
         <section class="more" v-show="store.setOpenState" @click="store.setOpenState = false">
           <MoreSet />
         </section>
       </div>
+<!-- 
+      <div class="containerTools" v-show="!store.backgroundShow&&store.toolsOpen">
+        <section class="all" v-show="!store.setOpenState&&store.toolsOpen">
+          <GHTools v-show="store.toolsOpen" />
+        </section>
+      </div> -->
+
       <!-- 移动端菜单按钮 -->
       <Icon
         class="menu"
@@ -47,6 +55,7 @@ import Box from "@/views/Box/index.vue";
 import MoreSet from "@/views/MoreSet/index.vue";
 import cursorInit from "@/utils/cursor.js";
 import config from "@/../package.json";
+import GHTools from "@/views/GHTools/index.vue";
 
 const store = mainStore();
 
@@ -165,6 +174,21 @@ onBeforeUnmount(() => {
     }
     @media (max-width: 1200px) {
       padding: 0 2vw;
+    }
+  }
+  .containerTools {
+    width: 100%;
+    height: 100%;
+    margin: 0 5%;
+    padding: 0 0.5vw;
+    .all {
+      width: 90%;
+      height: 95%;
+      padding: 0 0.75rem;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
     }
   }
   .menu {

@@ -66,7 +66,7 @@ a:hover {
   z-index: 0;
 }
 
-// 卡片样式
+/* 卡片样式 */
 .cards {
   border-radius: 6px;
   background-color: #00000040;
@@ -81,6 +81,7 @@ a:hover {
   &:active {
     transform: scale(0.98);
   }
+
 }
 
 // 文字超出

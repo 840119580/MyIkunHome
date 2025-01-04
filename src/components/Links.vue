@@ -57,10 +57,11 @@ import siteLinks from "@/assets/siteLinks.json";
 import  { ref } from "vue";
 import { storeToRefs } from "pinia";
 import { ElMessage } from "element-plus";
+// import { getElement } from "element-plus/lib/utils/index.js";
 
 
 const store = mainStore();
-const { valueOpenStyle } = storeToRefs(store);
+const { valueOpenStyle, toolsOpen } = storeToRefs(store);
 
 // 计算网站链接
 const siteLinksList = computed(() => {
@@ -86,6 +87,11 @@ const siteIcon = {
 
 // 链接跳转
 const jumpLink = (data) => {
+  if(data.name == "小工具合集"){
+    toolsOpen.value = true;
+    // console.log(toolsOpen);
+    return ;
+  }
   if(data.link==""){
     ElMessage.error(data.name+"链接为空");
     return;
@@ -107,6 +113,10 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
+
+.hidden {
+  display: none;
+}
 
 .valueOpenStyle {
   margin-left: 10px;

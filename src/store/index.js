@@ -25,8 +25,8 @@ export const mainStore = defineStore("main", {
       playerAutoplay: false, // 是否自动播放
       playerLoop: "all", // 循环播放 "all", "one", "none"
       playerOrder: "list", // 循环顺序 "list", "random"
-
       valueOpenStyle: true, // 页面打开样式"true""false" true:打开新页面 false:当前页面
+      toolsOpen: false, //小工具打开标记，当点击小工具合集时，这里变成true，以便于隐藏左右面板，然后显示小工具面板
     };
   },
   getters: {
@@ -91,6 +91,7 @@ export const mainStore = defineStore("main", {
       "playerLoop",
       "playerOrder",
       "valueOpenStyle",
+      "toolsOpen",
     ],
   },
 });

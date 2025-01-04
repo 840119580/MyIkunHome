@@ -32,6 +32,7 @@ const siteUrl = computed(() => {
 </script>
 
 <style lang="scss" scoped>
+
 .right {
   // flex: 1 0 0%;
   width: 50%;
