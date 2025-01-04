@@ -15,6 +15,7 @@ pinia.use(piniaPluginPersistedstate);
 app.use(pinia);
 app.component('ElTabs', ElTabs);
 app.component('ElTabPane', ElTabPane);
+app.component('ElInput', ElInput);
 app.mount("#app");
 
 // PWA

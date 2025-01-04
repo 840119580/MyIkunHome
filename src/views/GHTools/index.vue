@@ -3,9 +3,18 @@
     
     
     <el-tabs type="border-card" class="cards tabs custom-tabs">
-    <el-tab-pane label="文本批量替换">User</el-tab-pane>
-    <el-tab-pane label="颜色调整器">Config</el-tab-pane>
-    <el-tab-pane label="其他功能">开发中</el-tab-pane>
+    <el-tab-pane label="文本批量替换">
+      <TextReplacement />
+    </el-tab-pane>
+
+    <el-tab-pane label="颜色调整器">
+      
+    </el-tab-pane>
+
+    <el-tab-pane label="其他功能">
+      <el-skeleton :rows="3" />
+      <div style="padding-top: 10px;">开发中</div>
+    </el-tab-pane>
   </el-tabs>
 
   <transition name="el-fade-in-linear">
@@ -25,10 +34,13 @@
 <script setup>
 import { CloseOne, SettingTwo } from "@icon-park/vue-next";
 import { mainStore } from "@/store";
-import { ElTabs, ElTabPane } from "element-plus";
+import { ElTabs, ElTabPane, ElLoading } from "element-plus";
+import  TextReplacement  from "@/components/TextReplacement.vue"
 
 const store = mainStore();
 const closeShow = ref(false);
+
+
 </script>
 
 <style lang="scss" scoped>
@@ -92,8 +104,10 @@ const closeShow = ref(false);
 .custom-tabs {
   background-color: transparent !important;
   border: none;
+  
   :deep(.el-tabs__header){
-    background-color: transparent !important;
+    height: 60px;
+    background-color: #00000030 !important;
     border: none;
   }
   :deep(.el-tabs__content){
@@ -101,6 +115,22 @@ const closeShow = ref(false);
   }
   :deep(.el-tabs_pane){
     background-color: transparent !important;
+  }
+  :deep(.el-tabs__item){
+    background-color: transparent !important;
+    height: 60px;
+    border: none;
+    font-size:16px;
+    color:  #73787F80;
+
+    &:first-child{
+      border-radius: 8px 0px 0px 0px !important;
+    }
+    &.is-active{
+      background-color: #00000030 !important;
+      color: azure;
+      scale: (1.05);
+    }
   }
 }
 

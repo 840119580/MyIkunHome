@@ -6,23 +6,23 @@
   <!-- 主界面 -->
   <Transition name="fade" mode="out-in">
     <main id="main" v-if="store.imgLoadStatus">
-      <div class="container" v-show="!store.backgroundShow">
-        <section class="all" v-show="!store.setOpenState">
+      <div class="container" v-show="!store.backgroundShow&&!store.toolsOpen">
+        <section class="all" v-show="!store.setOpenState&&!store.toolsOpen">
           <MainLeft v-show = "!store.toolsOpen" />
           <MainRight v-show="!store.boxOpenState && !store.toolsOpen" />
-          <Box v-show="store.boxOpenState" />
-          <GHTools v-show="store.toolsOpen" />
+          <Box v-show="store.boxOpenState&&!store.toolsOpen" />
+          <!-- <GHTools v-show="store.toolsOpen" /> -->
         </section>
         <section class="more" v-show="store.setOpenState" @click="store.setOpenState = false">
           <MoreSet />
         </section>
       </div>
-<!-- 
+
       <div class="containerTools" v-show="!store.backgroundShow&&store.toolsOpen">
         <section class="all" v-show="!store.setOpenState&&store.toolsOpen">
           <GHTools v-show="store.toolsOpen" />
         </section>
-      </div> -->
+      </div>
 
       <!-- 移动端菜单按钮 -->
       <Icon
